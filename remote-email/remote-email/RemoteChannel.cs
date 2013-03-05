@@ -4,41 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Net.Mail;
 
-using ArduinoUtilities;
-
 namespace remote_email
 {
-    public class RemoteChannel : IPinMapping
+    public class RemoteChannel
     {
         public RemoteChannel(byte channelCode)
         {
             ChannelCode = channelCode;
-            PinNumber = -1;
-            Description = string.Empty;
-            ListeningForResponsePackage = true;
         }
 
-        public int PinNumber { get; set; }
-        public string Description { get; set; }
-        public bool ListeningForResponsePackage { get; set; }
         public byte ChannelCode { get; set; }
-
-        public ArduinoPinUtilities.SetPinEventHandler SetPinEventHandler { get; set; }
-        public SerialPortUtilities.ResponsePackageRecievedEventHandler ResponsePackageRecievedEventHandler { get; set; }
-        public SerialPortUtilities.ToggleListeningForResponsePackageEventHandler ToggleListeningForResponsePackageEventHandler { get; set; }
-
-        public byte[] DigitalWriteCommandPackageCode(bool turnOn)
-        {
-            throw new NotImplementedException();
-        }
-        public byte[] AnalogWriteCommandPackageCode(int intensity)
-        {
-            throw new NotImplementedException();
-        }
-        public byte[] SetPinModeCommandPackageCode(int pinMode)
-        {
-            throw new NotImplementedException();
-        }
 
         public void SendEmail(System.Net.NetworkCredential credentials, List<MailAddress> sendTo, string subject, string body)
         {

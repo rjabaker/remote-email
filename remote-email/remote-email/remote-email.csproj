@@ -49,12 +49,6 @@
     <Compile Include="RemoteManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\kinect\Skynet\ArduinoUtilities\ArduinoUtilities.csproj">
-      <Project>{63739152-BAFA-4953-A685-BFE12886635F}</Project>
-      <Name>ArduinoUtilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

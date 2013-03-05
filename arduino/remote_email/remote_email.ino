@@ -25,7 +25,7 @@ void readChannel(int *input, boolean *channelOpen, int inputPin){
    // Serial.println("Closed");
  }
  else if(*input < 100){
-   // Must wait for voltage to dissipate after channel is opened.
+   // Must wait for voltage to dissipate to minimum range after channel is opened.
    // if(*channelOpen == false) Serial.println("Open");
   *channelOpen = true; 
  }

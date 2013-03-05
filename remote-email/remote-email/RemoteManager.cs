@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Mail;
-
-using ArduinoUtilities;
+using System.IO.Ports;
 
 namespace remote_email
 {
     public class RemoteManager
     {
-        ArduinoSerialPort serialPort;
+        SerialPort serialPort;
         RemoteChannel channelA;
         RemoteChannel channelB;
 
@@ -29,11 +28,16 @@ namespace remote_email
 
             sendTo = new List<MailAddress>();
 
-            serialPort = new ArduinoSerialPort("COM5", 9600);
+            serialPort = new SerialPort("COM5", 9600);
             channelA = new RemoteChannel(5);
             channelB = new RemoteChannel(4);
-            serialPort.ComponentMappings.ResponseEvent += new SerialPortUtilities.ResponsePackageRecievedEventHandler(ComponentMappings_ResponseEvent);
+            serialPort.DataReceived += serialPort_DataReceived;
             serialPort.Open();
+        }
+
+        private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            ComponentMappings_ResponseEvent((byte)serialPort.ReadByte());
         }
 
         public void ComponentMappings_ResponseEvent(byte responsePackage)
