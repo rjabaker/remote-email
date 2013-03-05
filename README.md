@@ -1,3 +1,3 @@
 ## Remote Email Application
 
-This application allows you to send emails with the click of a remote. Attach the remote's receiver to an Arduino and load the code onto the board. The Arduino should be attached to the computer via the serial port. Run the .NET application in the background. When the remote's transmitter is triggered, the application will send an email to the specified emails in the .NET applications commandline.
+This application allows you to send emails with the click of a remote. Attach the remote's receiver to an Arduino and load the code onto the board. The Arduino should be attached to the computer via the serial port. Run the .NET application in the background. When the remote's transmitter is triggered, the application will send an email to the specified emails in the .NET application's commandline.
