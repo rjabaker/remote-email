@@ -28,9 +28,17 @@ namespace remote_email
 
             sendTo = new List<MailAddress>();
 
-            serialPort = new SerialPort("COM5", 9600);
+            // serialPort = new SerialPort("COM5", 9600);
             channelA = new RemoteChannel(5);
             channelB = new RemoteChannel(4);
+
+            // serialPort.DataReceived += serialPort_DataReceived;
+            // serialPort.Open();
+        }
+
+        public void OpenSerialPort(string port, int baudRate)
+        {
+            serialPort = new SerialPort(port, baudRate);
             serialPort.DataReceived += serialPort_DataReceived;
             serialPort.Open();
         }
