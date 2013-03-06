@@ -13,7 +13,7 @@ namespace remote_email
             Loop(remoteManager);
         }
 
-        static void ReadInput(string input, RemoteManager manager)
+        static void ReadInput(out string input, RemoteManager manager)
         {
             input = Console.ReadLine();
             string[] parsed = input.Split(' ');
@@ -57,7 +57,7 @@ namespace remote_email
             string input = string.Empty;
             while (input != "exit")
             {
-                ReadInput(input, manager);
+                ReadInput(out input, manager);
             }
         }
     }
